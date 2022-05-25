@@ -1,0 +1,31 @@
+{
+  "name": "mpre-e2e-automation",
+  "version": "1.0.0",
+  "description": "MPRE Automation Framework",
+  "scripts": {
+    "cleanRun": "rm -rf test-results allure-results allure-results.zip playwright-report.zip playwright-report artifacts",
+    "docker-clean": "docker image prune -f && docker volume prune -f",
+    "adb": "adb devices",
+    "allure:serve": "npx allure serve",
+    "pw:report": "playwright show-report",
+    "debug-mode": "npm run cleanRun && DEBUG=pw:browser* playwright test --config=configs/playwright.config.ts",
+    "test": "npm run cleanRun && playwright test --config=configs/playwright.config.ts",
+    "docker": "docker-compose up --force-recreate --build -d && npm run docker-clean && docker compose up",
+    "mobile": "npm run cleanRun && npm run adb && playwright test --config=configs/playwright.config.ts",
+    "inspect": "playwright codegen --color-scheme=dark",
+    "traceViewer": "npx playwright show-trace test-results/PublicSearch-LandingPage-Landing-page-Test-Suite-Landing-page-is-loading-properly-with-all-exact-contents-in-english-lang-Desktop-Chromium/trace.zip"
+  },
+  "author": "Amr Salem",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "*",
+    "dotenv": "^16.0.0",
+    "nodemailer": "^6.7.3",
+    "should": "*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.22.1",
+    "@types/nodemailer": "^6.4.4",
+    "expect-playwright": "^0.8.0"
+  }
+}
