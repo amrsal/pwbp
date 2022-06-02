@@ -6,10 +6,10 @@ import { fixtures as test } from '../pages/fixture';
 test.describe('Dash login page', () => {
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://dash.pricehubble.com/login', { waitUntil: 'domcontentloaded' })
+        await page.goto('/login', { waitUntil: 'domcontentloaded' })
     })
 
-    test('Should login with valid credential', async ({ page, dashLoginPage }) => {
+    test.only('Should login with valid credential', async ({ page, dashLoginPage }) => {
         await dashLoginPage.LoginWith('Helga', '70LgKhaaCD40')
         await expect(page).toHaveURL('https://dash.pricehubble.com/my-dash');
     })
