@@ -1,4 +1,5 @@
 import { Page } from "playwright-core";
+import { configList } from "./exporter";
 
 export default class DashLoginPage {
 
@@ -22,5 +23,15 @@ export default class DashLoginPage {
         await this.username.type(username)
         await this.password.type(password)
         await this.loginButton.click()
+    }
+
+    async waitForResponseAndVerifyStatus(username: string, password: string, expectedStatus: number) {
+        await Promise.all([
+            this.page.waitForResponse(response =>
+                response.url() === `${configList.APIBaseUrl}/auth/login/credentials` &&
+                response.status() === expectedStatus,
+                { timeout: 4000 }),
+            this.LoginWith(username, password)
+        ]);
     }
 }
