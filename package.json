@@ -24,7 +24,7 @@
     "should": "*"
   },
   "devDependencies": {
-    "@playwright/test": "^1.22.1",
+    "@playwright/test": "^1.23.0",
     "@types/nodemailer": "^6.4.4",
     "expect-playwright": "^0.8.0"
   }
