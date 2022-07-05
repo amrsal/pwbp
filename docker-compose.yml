@@ -12,6 +12,9 @@ services:
     environment:   
       CI: 'true'
       CIRCLE_BRANCH: ${CIRCLE_BRANCH}  
+      CIRCLE_BUILD_URL: ${CIRCLE_BUILD_URL:-}
+      CIRCLE_BUILD_NUM: ${CIRCLE_BUILD_NUM:-}
+      CIRCLE_JOB: ${CIRCLE_JOB:-}
       EMAIL_LIST: ${EMAIL_LIST:-}   
       EMAIL_TOKEN: ${EMAIL_TOKEN:-}   
       EMAIL_DOMAIN: ${EMAIL_DOMAIN:-}   
