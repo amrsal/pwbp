@@ -19,6 +19,14 @@ const configList = {
         ['html', { open: 'never'}],
         ['../src/utils/myReporter.ts']
     ],
+    mailReporter: {
+        auth: { token: process.env.EMAIL_TOKEN, domain: process.env.EMAIL_DOMAIN },
+        email: process.env.EMAIL_REPORTER,
+        email_list: process.env.EMAIL_LIST,
+    },
+    project_name: 'write project name',
+    project_logo: 'https://storage.googleapis.com/pricehubble-production-homepage-static/img/favicon-180x180.937a8dc939bb.png',
+    team_name: 'PH Team',
     workers: 3,
     timeout: 40000,
     assertionTimeout: 7000,

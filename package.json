@@ -1,7 +1,7 @@
 {
-  "name": "mpre-e2e-automation",
+  "name": "ph-automation-boilerplate",
   "version": "1.0.0",
-  "description": "MPRE Automation Framework",
+  "description": "PW Automation Framework",
   "scripts": {
     "cleanRun": "rm -rf test-results allure-results allure-results.zip playwright-report.zip playwright-report artifacts",
     "docker-clean": "docker image prune -f && docker volume prune -f",
@@ -19,13 +19,15 @@
   "license": "ISC",
   "dependencies": {
     "chai": "*",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "nodemailer": "^6.7.3",
+    "nodemailer-mailgun-transport": "*",
     "should": "*"
   },
   "devDependencies": {
     "@playwright/test": "^1.23.0",
     "@types/nodemailer": "^6.4.4",
+    "@types/nodemailer-mailgun-transport": "^1.4.3",
     "expect-playwright": "^0.8.0"
   }
 }

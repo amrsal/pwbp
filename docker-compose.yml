@@ -11,7 +11,11 @@ services:
     container_name: automation       
     environment:   
       CI: 'true'
-      CIRCLE_BRANCH: ${CIRCLE_BRANCH}                                           
+      CIRCLE_BRANCH: ${CIRCLE_BRANCH}  
+      EMAIL_LIST: ${EMAIL_LIST:-}   
+      EMAIL_TOKEN: ${EMAIL_TOKEN:-}   
+      EMAIL_DOMAIN: ${EMAIL_DOMAIN:-}   
+      EMAIL_REPORTER: ${EMAIL_REPORTER:-}                                         
       TEST_SCRIPT: npm run test                                              
       REPORT: playwright                                                           
       REPORT_DIR: './'       
