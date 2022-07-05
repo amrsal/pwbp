@@ -6,6 +6,7 @@ import configList from "../../configs/configlist";
 import API from "../utils/API_utils";
 import constants from "../testData/constants";
 import DashLoginPage from "./dashLoginPage";
+import CreatePage from "./createPage";
 
 
-export { LandingPage, PublicSearch, PropertyDetails, constants, DataProvider, configList, API ,DashLoginPage};
+export { LandingPage, PublicSearch, PropertyDetails, constants, DataProvider, configList, API, DashLoginPage, CreatePage };

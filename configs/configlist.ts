@@ -9,8 +9,9 @@ const configList = {
     acceptDownloads: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    baseURL: process.env.CIRCLE_BRANCH === 'dev' ? 'https://beta.moneypark.ch/en/properties/buy' : process.env.CIRCLE_BRANCH === 'master' ? 'https://moneypark.ch/en/properties/buy' : 'http://localhost:8080',
-    APIBaseUrl: process.env.CIRCLE_BRANCH === 'dev' ? 'https://beta.moneypark.ch/mpre-search-api/pub/v1/' : process.env.CIRCLE_BRANCH === 'master' ? 'https://moneypark.ch/mpre-search-api/pub/v1/' : 'http://localhost:8080/mpre-search-api/pub/v1/',
+    baseURL: 'https://dash.pricehubble.com/',
+    // baseURL: process.env.CIRCLE_BRANCH === 'dev' ? 'https://dash.pricehubble.com/' : process.env.CIRCLE_BRANCH === 'master' ? 'https://moneypark.ch/en/properties/buy' : 'http://localhost:8080',
+    APIBaseUrl: 'https://api.pricehubble.com',
     browser: process.env.CI ? 'x': 'chrome' ,
     testDir: '../src/specs',
     reporter: [
@@ -18,6 +19,14 @@ const configList = {
         ['html', { open: 'never'}],
         ['../src/utils/myReporter.ts']
     ],
+    mailReporter: {
+        auth: { token: process.env.EMAIL_TOKEN, domain: process.env.EMAIL_DOMAIN },
+        email: process.env.EMAIL_REPORTER,
+        email_list: process.env.EMAIL_LIST,
+    },
+    project_name: 'write project name',
+    project_logo: 'https://storage.googleapis.com/pricehubble-production-homepage-static/img/favicon-180x180.937a8dc939bb.png',
+    team_name: 'PH Team',
     workers: 3,
     timeout: 40000,
     assertionTimeout: 7000,
@@ -26,7 +35,9 @@ const configList = {
     specs:
     //s process.env.CI ? ['*'] :
         [
-            'src/specs/PublicSearch/LandingPage.test.ts',
+            'src/specs/dashLoginPage.test.ts',
+            // 'src/specs/craetePage.test.ts'
+            // 'src/specs/PublicSearch/LandingPage.test.ts',
             // 'src/specs/PublicSearch/PublicSearchPage.test.ts',
             // 'src/specs/PublicSearch/PropertyDetailsPage.test.ts'
             // 'src/specs/Mobile/mobile.test.ts'
